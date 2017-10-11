@@ -5,8 +5,8 @@ const server = new Server({
   browsers: ['Chrome'],
   singleRun: true,
   frameworks: ['mocha'],
-  files: ['./test/*.jsx'],
-  preprocessors: { './test/*.jsx': ['webpack', 'sourcemap'] },
+  files: ['./test/*-spec.tsx'],
+  preprocessors: { './test/*-spec.tsx': ['webpack', 'sourcemap'] },
   reporters: ['dots'],
   webpack: {
     devtool: 'inline-source-map',
@@ -14,7 +14,7 @@ const server = new Server({
 			preLoaders: [{
 	      test: /\.js?/,
 	      exclude: /node_modules/,
-	      loader: 'xo-loader'
+	      loader: 'babel-loader'
 	    }],
       loaders: [{
         test: /\.js?/,
@@ -31,13 +31,13 @@ const server = new Server({
 	      loader: "file-loader"
       }]
     },
-	  xo: {
-			envs: ["mocha"],
-	    extends: ["xo", "xo-react"],
-	    rules: {
-	      "quote-props": ["error", "as-needed"]
-	    }
-	  }
+	  //xo: {
+		//	envs: ["mocha"],
+	  //  extends: ["xo", "xo-react"],
+	  //  rules: {
+	  //    "quote-props": ["error", "as-needed"]
+	  //  }
+	  // }
   },
   webpackServer: {
     noInfo: true

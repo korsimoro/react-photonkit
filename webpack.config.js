@@ -5,12 +5,12 @@ const path = require('path');
 module.exports = {
 	module: {
 		preLoaders: [{
-			test: /\.jsx?$/,
+			test: /\.tsx?$/,
 			exclude: /node_modules/,
 			loader: 'xo-loader'
 		}],
 		loaders: [{
-			test: /\.jsx?$/,
+			test: /\.tsx?$/,
 			exclude: /node_modules/,
 			loaders: ['babel-loader']
 		}, {
@@ -42,5 +42,11 @@ module.exports = {
 			"quote-props": ["error", "as-needed"],
 			'react/require-optimization': 0
 		}
-	}
+	},
+	plugins: [
+		//new CopyWebpackPlugin([
+		//		// Copy directory contents to {output}/to/directory/
+		//		{ from: '../node_modules/photon/dist/css/photon.min.css', to: 'src' }
+		// 	])
+		]
 };
